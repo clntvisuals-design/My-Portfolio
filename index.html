@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Clint Lyster E. Banderada - Graphic Designer & Developer | BS Information Systems | Panabo City, Davao del Norte"/>
+<meta name="theme-color" content="#9b5de5"/>
+<meta property="og:title" content="Clint Lyster E. Banderada — Portfolio"/>
+<meta property="og:description" content="Graphic Designer & Developer specializing in branding, UI/UX, social media design, and information systems"/>
+<meta property="og:type" content="website"/>
+<title>Clint Lyster E. Banderada — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#0a0a0f;
+    --bg2:#111118;
+    --bg3:#1a1a26;
+    --card:#16161f;
+    --accent:#9b5de5;
+    --accent2:#c77dff;
+    --accent3:#e0aaff;
+    --text:#f0eaff;
+    --muted:#9990b8;
+    --border:#2a2a3d;
+    --white:#ffffff;
+  }
+  .light{
+    --bg:#f5f0ff;
+    --bg2:#ede7ff;
+    --bg3:#ddd0ff;
+    --card:#ffffff;
+    --accent:#7b2fd4;
+    --accent2:#9b4fd4;
+    --accent3:#6b21a8;
+    --text:#1a0a2e;
+    --muted:#5a4a7a;
+    --border:#c4b0e8;
+    --white:#ffffff;
+  }
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Space Grotesk',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    transition:background .4s,color .4s;
+    overflow-x:hidden;
+  }
+
+  /* TOGGLE */
+  .mode-toggle{
+    position:fixed;top:20px;right:24px;z-index:999;
+    background:var(--card);border:1px solid var(--border);
+    border-radius:50px;padding:6px 16px;
+    display:flex;align-items:center;gap:8px;
+    cursor:pointer;font-size:13px;color:var(--text);
+    transition:all .3s;font-family:'Space Grotesk',sans-serif;
+    box-shadow:0 2px 20px rgba(155,93,229,.2);
+  }
+  .mode-toggle:hover{border-color:var(--accent);box-shadow:0 2px 20px rgba(155,93,229,.5);transform:translateY(-2px)}
+  .toggle-dot{
+    width:20px;height:20px;border-radius:50%;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    display:flex;align-items:center;justify-content:center;font-size:10px;
+  }
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:16px 5%;
+    display:flex;align-items:center;justify-content:space-between;
+    background:rgba(10,10,15,.85);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+    transition:background .4s;
+  }
+  .light nav{background:rgba(245,240,255,.9)}
+  .logo{
+    font-family:'Space Mono',monospace;
+    font-size:15px;font-weight:700;
+    color:var(--accent2);letter-spacing:2px;
+    transition:transform .3s,text-shadow .3s;
+  }
+  .logo:hover{transform:scale(1.05);text-shadow:0 0 20px rgba(199,125,255,.5)}
+  .nav-links{display:flex;gap:28px}
+  .nav-links a{
+    color:var(--muted);text-decoration:none;font-size:13px;
+    font-weight:500;letter-spacing:.5px;transition:color .2s,text-shadow .2s;
+    position:relative;
+  }
+  .nav-links a::after{
+    content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    transition:width .3s;
+  }
+  .nav-links a:hover{color:var(--accent2)}
+  .nav-links a:hover::after{width:100%}
+
+  /* HERO */
+  #hero{
+    min-height:100vh;display:flex;align-items:center;
+    padding:120px 5% 80px;position:relative;overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(155,93,229,.15) 0%,transparent 70%),
+               radial-gradient(ellipse 40% 40% at 20% 80%,rgba(199,125,255,.1) 0%,transparent 60%);
+    animation:gradientShift 8s ease-in-out infinite;
+  }
+  @keyframes gradientShift{
+    0%,100%{opacity:1;transform:scale(1)}
+    50%{opacity:.8;transform:scale(1.05)}
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:60px;align-items:center;max-width:1200px;margin:0 auto;width:100%;
+  }
+  .hero-left h1{
+    font-size:clamp(2.2rem,4vw,3.8rem);font-weight:700;line-height:1.1;
+    margin-bottom:16px;
+  }
+  .hero-left h1 span{
+    background:linear-gradient(135deg,var(--accent),var(--accent2),var(--accent3));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    background-clip:text;
+    animation:gradientFlow 3s ease infinite;
+  }
+  @keyframes gradientFlow{
+    0%,100%{filter:brightness(1)}
+    50%{filter:brightness(1.2)}
+  }
+  .hero-role{
+    font-family:'Space Mono',monospace;font-size:13px;
+    color:var(--accent2);letter-spacing:3px;text-transform:uppercase;
+    margin-bottom:20px;
+    animation:slideInDown .8s ease;
+  }
+  .hero-desc{
+    font-size:16px;color:var(--muted);line-height:1.7;margin-bottom:36px;max-width:480px;
+    animation:slideInUp .8s ease .2s both;
+  }
+  @keyframes slideInDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes slideInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  .hero-btns{display:flex;gap:16px;flex-wrap:wrap;animation:slideInUp .8s ease .4s both}
+  .btn-primary{
+    padding:12px 28px;border-radius:50px;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    color:#fff;font-weight:600;font-size:14px;
+    text-decoration:none;border:none;cursor:pointer;
+    transition:transform .2s,box-shadow .2s,filter .2s;
+    font-family:'Space Grotesk',sans-serif;
+    position:relative;overflow:hidden;
+  }
+  .btn-primary::before{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);
+    transform:translateX(-100%);
+    transition:transform .6s;
+  }
+  .btn-primary:hover::before{transform:translateX(100%)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(155,93,229,.6);filter:brightness(1.1)}
+  .btn-cv{background:linear-gradient(135deg,#c77dff,#e0aaff) !important}
+  .btn-outline{
+    padding:12px 28px;border-radius:50px;
+    border:2px solid var(--border);color:var(--text);
+    font-weight:500;font-size:14px;text-decoration:none;
+    transition:border-color .2s,background .2s,transform .2s;
+    font-family:'Space Grotesk',sans-serif;
+  }
+  .btn-outline:hover{border-color:var(--accent);background:rgba(155,93,229,.1);transform:translateY(-2px)}
+  .hero-right{display:flex;justify-content:center;align-items:center}
+  .avatar-wrap{
+    position:relative;width:340px;height:340px;
+    animation:floatY 4s ease-in-out infinite;
+  }
+  @keyframes floatY{
+    0%,100%{transform:translateY(0) rotate(-1deg)}
+    50%{transform:translateY(-18px) rotate(1deg)}
+  }
+  .avatar-ring{
+    position:absolute;inset:-16px;border-radius:50%;
+    border:2px solid transparent;
+    background:linear-gradient(var(--bg),var(--bg)) padding-box,
+               linear-gradient(135deg,var(--accent),transparent,var(--accent2)) border-box;
+    animation:rotateSlow 8s linear infinite;
+  }
+  .light .avatar-ring{background:linear-gradient(var(--bg),var(--bg)) padding-box,
+               linear-gradient(135deg,var(--accent),transparent,var(--accent2)) border-box;}
+  @keyframes rotateSlow{to{transform:rotate(360deg)}}
+  .avatar-ring2{
+    position:absolute;inset:-32px;border-radius:50%;
+    border:1px solid rgba(155,93,229,.2);
+    animation:rotateSlow 14s linear infinite reverse;
+  }
+  .avatar-img{
+    width:100%;height:100%;border-radius:50%;
+    object-fit:cover;object-position:top;
+    border:4px solid var(--border);
+    background:var(--bg3);
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;position:relative;z-index:1;
+    box-shadow:0 0 40px rgba(155,93,229,.3);
+  }
+  .avatar-img img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+  .avatar-initials{
+    font-size:72px;font-weight:700;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    background-clip:text;font-family:'Space Mono',monospace;
+    user-select:none;
+  }
+  .hero-tag{
+    position:absolute;background:var(--card);border:1px solid var(--border);
+    border-radius:12px;padding:8px 14px;font-size:12px;font-weight:600;
+    color:var(--accent2);white-space:nowrap;z-index:2;
+    animation:floatTag 3s ease-in-out infinite;
+    box-shadow:0 4px 15px rgba(155,93,229,.2);
+  }
+  .hero-tag.t1{bottom:-10px;left:-20px;animation-delay:.5s}
+  .hero-tag.t2{top:10px;right:-30px;animation-delay:1s}
+  .hero-tag.t3{bottom:60px;right:-56px;animation-delay:1.6s}
+  @keyframes floatTag{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .hero-stats{
+    display:flex;gap:32px;margin-top:40px;
+    border-top:1px solid var(--border);padding-top:32px;
+    animation:slideInUp .8s ease .6s both;
+  }
+  .stat-num{font-size:28px;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .stat-label{font-size:12px;color:var(--muted);margin-top:2px}
+
+  /* SECTIONS */
+  section{padding:100px 5%}
+  .section-inner{max-width:1200px;margin:0 auto}
+  .section-label{
+    font-family:'Space Mono',monospace;font-size:11px;
+    letter-spacing:4px;text-transform:uppercase;color:var(--accent);
+    margin-bottom:12px;
+  }
+  .section-title{
+    font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;
+    margin-bottom:16px;line-height:1.2;
+  }
+  .section-sub{font-size:16px;color:var(--muted);line-height:1.7;max-width:560px}
+
+  /* ABOUT */
+  #about{background:var(--bg2)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:60px;align-items:start}
+  .about-text p{font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:16px}
+  .about-text strong{color:var(--text);font-weight:600}
+  .info-list{list-style:none;margin-top:24px}
+  .info-list li{
+    display:flex;gap:12px;align-items:flex-start;
+    padding:10px 0;border-bottom:1px solid var(--border);
+    font-size:14px;
+    transition:transform .2s,border-color .2s;
+  }
+  .info-list li:hover{transform:translateX(8px);border-color:var(--accent)}
+  .info-list li:last-child{border-bottom:none}
+  .info-key{color:var(--muted);min-width:100px;font-weight:500}
+  .info-val{color:var(--text);font-weight:600}
+  .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+  .skill-pill{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:8px;padding:10px 14px;font-size:13px;
+    color:var(--text);font-weight:500;
+    transition:border-color .2s,background .2s,transform .2s,box-shadow .2s;
+    display:flex;align-items:center;gap:8px;
+    cursor:pointer;
+  }
+  .skill-pill:hover{
+    border-color:var(--accent);
+    background:rgba(155,93,229,.12);
+    transform:translateY(-2px);
+    box-shadow:0 6px 20px rgba(155,93,229,.2);
+  }
+  .skill-dot{
+    width:6px;height:6px;border-radius:50%;
+    background:var(--accent2);flex-shrink:0;
+  }
+
+  /* WORK / PORTFOLIO CARDS */
+  #work{background:var(--bg)}
+  .work-intro{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px}
+  .portfolio-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+    gap:24px;
+  }
+  .pcard{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:16px;overflow:hidden;
+    transition:transform .3s cubic-bezier(.34,.1,.68,1),box-shadow .3s,border-color .3s;
+    cursor:pointer;
+    animation:fadeUp .8s cubic-bezier(.22,1,.36,1) calc(var(--i,0)*.08s) both;
+    position:relative;will-change:transform;
+  }
+  .pcard:hover{
+    transform:translateY(-8px) scale(1.02);
+    box-shadow:0 25px 70px rgba(155,93,229,.3);
+    border-color:var(--accent);
+  }
+  @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+  .pcard-img{
+    width:100%;aspect-ratio:4/5;background:var(--bg3);
+    display:flex;align-items:center;justify-content:center;
+    position:relative;overflow:hidden;
+  }
+  .pcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s cubic-bezier(.34,.1,.68,1)}
+  .pcard:hover .pcard-img img{transform:scale(1.08) rotate(1deg)}
+  .pcard-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(to top,rgba(10,10,15,.95) 0%,transparent 50%);
+    opacity:0;transition:opacity .3s;
+    display:flex;align-items:flex-end;padding:20px;
+  }
+  .pcard:hover .pcard-overlay{opacity:1}
+  .overlay-tag{
+    background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;
+    font-size:11px;font-weight:700;letter-spacing:1px;
+    padding:6px 14px;border-radius:50px;text-transform:uppercase;
+    box-shadow:0 4px 15px rgba(155,93,229,.4);
+  }
+  .pcard-body{padding:20px}
+  .pcard-cat{font-size:11px;letter-spacing:2px;color:var(--accent2);font-weight:600;text-transform:uppercase;margin-bottom:6px}
+  .pcard-title{font-size:16px;font-weight:700;margin-bottom:6px;transition:color .2s}
+  .pcard:hover .pcard-title{color:var(--accent2)}
+  .pcard-desc{font-size:13px;color:var(--muted);line-height:1.6}
+  .pcard-placeholder{
+    width:100%;height:100%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:64px;
+  }
+
+  /* EXPERIENCE */
+  #experience{background:var(--bg2)}
+  .exp-timeline{margin-top:48px;position:relative;padding-left:32px}
+  .exp-timeline::before{
+    content:'';position:absolute;left:7px;top:6px;bottom:6px;
+    width:2px;background:linear-gradient(to bottom,var(--accent),var(--accent2),transparent);
+    animation:expandHeight 1s ease-out;
+  }
+  @keyframes expandHeight{from{height:0}to{height:100%}}
+  .exp-item{
+    position:relative;margin-bottom:48px;
+    animation:fadeUp .6s ease both;
+    padding:20px;
+    border-radius:12px;
+    transition:background .2s,border .2s;
+  }
+  .exp-item:hover{
+    background:rgba(155,93,229,.05);
+    border:1px solid rgba(155,93,229,.2);
+  }
+  .exp-item::before{
+    content:'';position:absolute;left:-29px;top:26px;
+    width:16px;height:16px;border-radius:50%;
+    background:var(--accent);border:3px solid var(--bg2);
+    box-shadow:0 0 0 4px rgba(155,93,229,.4);
+    transition:box-shadow .3s;
+  }
+  .exp-item:hover::before{box-shadow:0 0 0 8px rgba(155,93,229,.2)}
+  .exp-year{
+    font-family:'Space Mono',monospace;font-size:11px;
+    color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;
+  }
+  .exp-title{font-size:18px;font-weight:700;margin-bottom:4px}
+  .exp-org{font-size:14px;color:var(--accent2);font-weight:500;margin-bottom:12px}
+  .exp-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+  .exp-list li{
+    font-size:14px;color:var(--muted);padding-left:16px;position:relative;line-height:1.6;
+    transition:color .2s;
+  }
+  .exp-list li:hover{color:var(--text)}
+  .exp-list li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:12px}
+
+  /* CERTIFICATIONS */
+  #certs{background:var(--bg)}
+  .certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;margin-top:48px}
+  .cert-card{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:14px;padding:20px;
+    transition:border-color .2s,transform .2s,box-shadow .2s;
+    animation:fadeUp .5s ease both;
+    position:relative;
+    overflow:hidden;
+  }
+  .cert-card::before{
+    content:'';position:absolute;top:0;left:0;right:0;
+    height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2),transparent);
+    transform:scaleX(0);transition:transform .3s;
+  }
+  .cert-card:hover::before{transform:scaleX(1);transform-origin:left}
+  .cert-card:hover{
+    border-color:var(--accent);
+    transform:translateY(-4px);
+    box-shadow:0 12px 35px rgba(155,93,229,.2);
+  }
+  .cert-year{
+    font-family:'Space Mono',monospace;font-size:10px;
+    letter-spacing:2px;color:#fff;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    display:inline-block;padding:4px 12px;border-radius:50px;margin-bottom:10px;
+    font-weight:600;
+  }
+  .cert-title{font-size:15px;font-weight:700;margin-bottom:4px}
+  .cert-sub{font-size:13px;color:var(--muted)}
+
+  /* CONTACT */
+  #contact{
+    background:var(--bg2);
+    text-align:center;
+  }
+  .contact-inner{max-width:600px;margin:0 auto}
+  .contact-inner .section-sub{max-width:100%;text-align:center;margin:0 auto 40px}
+  .contact-cards{display:flex;flex-direction:column;gap:12px;margin-bottom:40px}
+  .contact-card{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:12px;padding:16px 20px;
+    display:flex;align-items:center;gap:16px;
+    transition:border-color .2s,transform .2s,box-shadow .2s;
+    text-align:left;
+  }
+  .contact-card:hover{
+    border-color:var(--accent);
+    transform:translateX(8px);
+    box-shadow:0 8px 25px rgba(155,93,229,.2);
+  }
+  .contact-icon{
+    width:40px;height:40px;border-radius:10px;
+    background:linear-gradient(135deg,rgba(155,93,229,.2),rgba(199,125,255,.1));
+    display:flex;align-items:center;justify-content:center;
+    font-size:18px;flex-shrink:0;color:var(--accent2);
+  }
+  .contact-label{font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
+  .contact-val{font-size:14px;font-weight:600;color:var(--text)}
+
+  /* FOOTER */
+  footer{
+    background:var(--bg);border-top:1px solid var(--border);
+    padding:40px 5%;text-align:center;
+    font-size:13px;color:var(--muted);
+  }
+  footer span{color:var(--accent2);font-weight:600}
+
+  /* SCROLL ANIMATIONS */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.visible{opacity:1;transform:none}
+
+  /* PURPLE GLOW DIVIDERS */
+  .glow-line{
+    height:2px;background:linear-gradient(to right,transparent,var(--accent),transparent);
+    margin:0 5%;
+    box-shadow:0 0 30px rgba(155,93,229,.3);
+  }
+
+  /* DESIGN ELEMENT */
+  .design-badge{
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(155,93,229,.15);border:1px solid rgba(155,93,229,.4);
+    border-radius:50px;padding:8px 16px;font-size:12px;color:var(--accent2);
+    font-weight:600;letter-spacing:.5px;margin-bottom:24px;
+    animation:slideInDown .8s ease;
+  }
+  .design-badge::before{
+    content:'✦';font-size:10px;
+    animation:spin 3s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  /* SMOOTH SCROLL ENHANCEMENT */
+  @supports (scroll-behavior: smooth) {
+    html { scroll-behavior: smooth; }
+  }
+
+  /* REDUCED MOTION */
+  @media (prefers-reduced-motion: reduce) {
+    *{animation:none !important;transition:none !important}
+    html{scroll-behavior:auto}
+  }
+
+  /* Mobile */
+  @media(max-width:768px){
+    .hero-grid,.about-grid{grid-template-columns:1fr;gap:40px}
+    .hero-right{order:-1}
+    .avatar-wrap{width:220px;height:220px}
+    .hero-stats{gap:20px}
+    .work-intro{flex-direction:column;align-items:flex-start;gap:16px}
+    nav .nav-links{display:none}
+    .mode-toggle{top:16px;right:16px}
+    .portfolio-grid{grid-template-columns:1fr}
+    .certs-grid{grid-template-columns:1fr}
+  }
+
+  /* ✦ AESTHETIC MOTION LAYER */
+  body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:radial-gradient(500px circle at var(--mx,50%) var(--my,30%),rgba(155,93,229,.14),transparent 60%);transition:background .2s}
+  .scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:1000;
+    background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3));box-shadow:0 0 12px var(--accent2)}
+  .orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.35;pointer-events:none;animation:orbDrift 14s ease-in-out infinite}
+  .orb.o1{width:260px;height:260px;background:var(--accent);top:8%;left:-60px}
+  .orb.o2{width:200px;height:200px;background:var(--accent2);bottom:6%;right:8%;animation-delay:-6s}
+  @keyframes orbDrift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.15)}66%{transform:translate(-30px,30px) scale(.9)}}
+  .reveal{filter:blur(6px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1),filter .9s}
+  .reveal.visible{filter:blur(0)}
+  .pcard{transform-style:preserve-3d}
+  .pcard.tilt{transition:transform .25s ease-out,box-shadow .3s,border-color .3s}
+  .pcard:hover{transform:translateY(-8px)}
+  .pcard-shine{position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.22) 50%,transparent 65%);
+    transform:translateX(-120%);transition:transform .9s cubic-bezier(.22,1,.36,1)}
+  .pcard:hover .pcard-shine{transform:translateX(120%)}
+  .pcard-img img{transition:transform .8s cubic-bezier(.22,1,.36,1)}
+  .pcard:hover .pcard-img img{transform:scale(1.07)}
+  .hero-tag{animation:floatTag 4s ease-in-out infinite;backdrop-filter:blur(8px)}
+  .hero-tag:hover{border-color:var(--accent);box-shadow:0 6px 25px rgba(155,93,229,.5)}
+  .hero-left h1 span{background-size:200% 200%;animation:gradientSlide 5s ease infinite}
+  @keyframes gradientSlide{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+  .exp-item:nth-child(odd).reveal{transform:translateX(-24px)}
+  .exp-item:nth-child(even).reveal{transform:translateX(24px)}
+  .exp-item.reveal.visible{transform:none}
+  .cert-card.reveal{transition-delay:calc(var(--d,0)*.08s)}
+  .section-title{background:linear-gradient(90deg,var(--text),var(--accent3));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  @media(max-width:768px){.hero-tag.t3{right:-10px}.orb{display:none}}
+</style>
+</head>
+<body id="body">
+<div class="scroll-progress" id="sp"></div>
+
+<button class="mode-toggle" onclick="toggleMode()" aria-label="Toggle light/dark mode">
+  <div class="toggle-dot" id="toggle-icon">☀</div>
+  <span id="toggle-label">Light Mode</span>
+</button>
+
+<nav>
+  <div class="logo">CLB</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#experience">Experience</a>
+    <a href="#certs">Certifications</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="orb o1"></div><div class="orb o2"></div>
+  <div class="hero-grid">
+    <div class="hero-left reveal">
+      <div class="design-badge">Available for Part-Time Work</div>
+      <div class="hero-role">Graphic Designer & Developer</div>
+      <h1>Clint Lyster<br/><span>E. Banderada</span></h1>
+      <p class="hero-desc">
+        BS Information Systems student at Davao del Norte State College creating brand identities,
+        marketing visuals, and UI/UX experiences, backed by hands-on development and IT skills.
+      </p>
+      <div class="hero-btns">
+        <a href="#work" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-outline">Get In Touch</a>
+        <button onclick="downloadCV()" class="btn-primary btn-cv">
+          📥 Download CV
+        </button>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">5+</div>
+          <div class="stat-label">Years in Design</div>
+        </div>
+        <div>
+          <div class="stat-num">2</div>
+          <div class="stat-label">Awards Won</div>
+        </div>
+        <div>
+          <div class="stat-num">25+</div>
+          <div class="stat-label">Tools & Skills</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right reveal">
+      <div class="avatar-wrap">
+        <div class="avatar-ring"></div>
+        <div class="avatar-ring2"></div>
+        <div class="avatar-img">
+          <img src="profile.png" alt="Clint Lyster E. Banderada" style="object-position:center 20%"/>
+        </div>
+        <div class="hero-tag t1">📐 UI/UX Designer</div>
+        <div class="hero-tag t2">🎨 Graphic Designer</div>
+        <div class="hero-tag t3">📱 Social Media Manager</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="glow-line"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">Who I Am</div>
+    <h2 class="section-title reveal">Designer by Craft,<br/>Developer by Training</h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm <strong>Clint Lyster E. Banderada</strong>, a graphic designer and developer from Panabo City, Davao del Norte. I'm completing my <strong>BS in Information Systems</strong> at Davao del Norte State College (2022–2026), where I pair technical know-how with a sharp design eye.</p>
+        <p>Since 2021, I've been creating brand identities, logos, social media graphics, advertisements, menus, banners, posters, and print and digital marketing materials for clients. Today, I work as a <strong>Graphic Designer & Data Entry Specialist</strong> at Anabioil Corp. My roots in photojournalism at Francisco Adlaon Learning Institute shaped how I approach visual storytelling.</p>
+        <p>As <strong>Project Manager</strong> of our capstone project, KaizenSys, I led planning, task delegation, and team coordination. I've also built management systems in Java, so I thrive where creativity meets execution.</p>
+        <ul class="info-list">
+          <li><span class="info-key">Location</span><span class="info-val">Panabo City, Davao del Norte</span></li>
+          <li><span class="info-key">Email</span><span class="info-val">Clntvisuals@gmail.com</span></li>
+          <li><span class="info-key">Phone</span><span class="info-val">+63 935 610 8914</span></li>
+          <li><span class="info-key">Availability</span><span class="info-val">Part-Time Opportunities</span></li>
+          <li><span class="info-key">Education</span><span class="info-val">B.S. Information Systems, DNSC</span></li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div style="margin-bottom:20px">
+          <div class="section-label" style="margin-bottom:12px">Design Skills</div>
+          <div class="skills-grid">
+            <div class="skill-pill"><div class="skill-dot"></div>UI/UX Design (Figma)</div>
+            <div class="skill-pill"><div class="skill-dot"></div>Graphic Design</div>
+            <div class="skill-pill"><div class="skill-dot"></div>Adobe Photoshop</div>
+            <div class="skill-pill"><div class="skill-dot"></div>Adobe Lightroom</div>
+            <div class="skill-pill"><div class="skill-dot"></div>Canva Pro</div>
+            <div class="skill-pill"><div class="skill-dot"></div>CapCut</div>
+            <div class="skill-pill"><div class="skill-dot"></div>Typography</div>
+            <div class="skill-pill"><div class="skill-dot"></div>Layout Design</div>
+            <div class="skill-pill"><div class="skill-dot"></div>Branding & Identity</div>
+            <div class="skill-pill"><div class="skill-dot"></div>Social Media Design</div>
+          </div>
+        </div>
+        <div style="margin-top:28px">
+          <div class="section-label" style="margin-bottom:12px">Programming & IT</div>
+          <div class="skills-grid">
+            <div class="skill-pill"><div class="skill-dot" style="background:#c77dff"></div>Python</div>
+            <div class="skill-pill"><div class="skill-dot" style="background:#c77dff"></div>Java</div>
+            <div class="skill-pill"><div class="skill-dot" style="background:#c77dff"></div>HTML</div>
+            <div class="skill-pill"><div class="skill-dot" style="background:#c77dff"></div>CSS</div>
+            <div class="skill-pill"><div class="skill-dot" style="background:#c77dff"></div>JavaScript</div>
+            <div class="skill-pill"><div class="skill-dot" style="background:#c77dff"></div>PHP (Basic)</div>
+            <div class="skill-pill"><div class="skill-dot" style="background:#c77dff"></div>IT Troubleshooting</div>
+            <div class="skill-pill"><div class="skill-dot" style="background:#c77dff"></div>Microsoft Office 365</div>
+            <div class="skill-pill"><div class="skill-dot" style="background:#c77dff"></div>Remote Technical Support</div>
+            <div class="skill-pill"><div class="skill-dot" style="background:#c77dff"></div>Basic Networking</div>
+          </div>
+        </div>
+        <div style="margin-top:28px">
+          <div class="section-label" style="margin-bottom:12px">Automation & Collaboration</div>
+          <div class="skills-grid">
+            <div class="skill-pill"><div class="skill-dot" style="background:#c77dff"></div>n8n</div>
+            <div class="skill-pill"><div class="skill-dot" style="background:#c77dff"></div>Claude</div>
+            <div class="skill-pill"><div class="skill-dot" style="background:#c77dff"></div>Monday</div>
+            <div class="skill-pill"><div class="skill-dot" style="background:#c77dff"></div>Jira</div>
+            <div class="skill-pill"><div class="skill-dot" style="background:#c77dff"></div>Slack</div>
+            <div class="skill-pill"><div class="skill-dot" style="background:#c77dff"></div>Discord</div>
+            <div class="skill-pill"><div class="skill-dot" style="background:#c77dff"></div>Microsoft Teams</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="glow-line"></div>
+
+<!-- WORK -->
+<section id="work">
+  <div class="section-inner">
+    <div class="work-intro reveal">
+      <div>
+        <div class="section-label">Portfolio</div>
+        <h2 class="section-title">Selected Work</h2>
+      </div>
+      <p style="font-size:14px;color:var(--muted);max-width:300px;text-align:right">
+        A selection of graphic design, branding, and marketing pieces
+      </p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="pcard tilt" style="--i:0">
+        <div class="pcard-img" style="background:linear-gradient(135deg,#0a2010,#1a4020)">
+          <img src="matcha.jpg" alt="Iced Matcha Latte Promo" loading="lazy" onerror="this.style.display='none'"/>
+          <div class="pcard-overlay"><span class="overlay-tag">Product Ad</span></div>
+          <div class="pcard-shine"></div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-cat">Product Marketing</div>
+          <div class="pcard-title">Iced Matcha Latte — Promo Poster</div>
+          <p class="pcard-desc">Soft sage palette with a gingham backdrop, layered leaves, and a bold MATCHA headline wrapped around two sculpted glasses.</p>
+        </div>
+      </div>
+      <div class="pcard tilt" style="--i:1">
+        <div class="pcard-img" style="background:linear-gradient(135deg,#3a1a0a,#5a2a10)">
+          <img src="sushi.jpg" alt="Sushi Platter Ad" loading="lazy" onerror="this.style.display='none'"/>
+          <div class="pcard-overlay"><span class="overlay-tag">Food Ad</span></div>
+          <div class="pcard-shine"></div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-cat">Food Advertising</div>
+          <div class="pcard-title">Sushi Platter — Menu Ad</div>
+          <p class="pcard-desc">Warm terracotta layout with a chopstick-held roll, golden sauce splash, and a wooden platter of nigiri and maki.</p>
+        </div>
+      </div>
+      <div class="pcard tilt" style="--i:2">
+        <div class="pcard-img" style="background:linear-gradient(135deg,#0a1a2a,#1a3040)">
+          <img src="tuka.jpg" alt="Tuka Marine Park Travel Poster" loading="lazy" onerror="this.style.display='none'"/>
+          <div class="pcard-overlay"><span class="overlay-tag">Travel Poster</span></div>
+          <div class="pcard-shine"></div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-cat">Travel & Tourism</div>
+          <div class="pcard-title">Tuka Marine Park — Beach Escape</div>
+          <p class="pcard-desc">Fan-shaped photo collage bursting from a camera lens onto a sandy shoreline, with hand-lettered taglines and doodle accents.</p>
+        </div>
+      </div>
+      <div class="pcard tilt" style="--i:3">
+        <div class="pcard-img" style="background:linear-gradient(135deg,#0a1030,#102050)">
+          <img src="fuji.jpg" alt="Mt. Fuji Poster" loading="lazy" onerror="this.style.display='none'"/>
+          <div class="pcard-overlay"><span class="overlay-tag">Poster Design</span></div>
+          <div class="pcard-shine"></div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-cat">Travel Poster</div>
+          <div class="pcard-title">Mt. Fuji — The Iconic Peak</div>
+          <p class="pcard-desc">Vintage paper poster with a torn-edge sky, red rising sun, cherry blossoms, and heavy green typography with kanji.</p>
+        </div>
+      </div>
+      <div class="pcard tilt" style="--i:4">
+        <div class="pcard-img" style="background:linear-gradient(135deg,#3a0a20,#5a1a35)">
+          <img src="tokyo.jpg" alt="Tokyo Tower Poster" loading="lazy" onerror="this.style.display='none'"/>
+          <div class="pcard-overlay"><span class="overlay-tag">Poster Design</span></div>
+          <div class="pcard-shine"></div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-cat">Travel Poster</div>
+          <div class="pcard-title">Tokyo — Rising 333 Meters</div>
+          <p class="pcard-desc">Grunge-textured split layout in pink and cream, a low-angle Tokyo Tower, scratch overlays, and sakura branches.</p>
+        </div>
+      </div>
+      <div class="pcard tilt" style="--i:5">
+        <div class="pcard-img" style="background:linear-gradient(135deg,#3a0a0a,#1a0505)">
+          <img src="pizza.jpg" alt="Pizza Promo Flyer" loading="lazy" onerror="this.style.display='none'"/>
+          <div class="pcard-overlay"><span class="overlay-tag">Flyer Design</span></div>
+          <div class="pcard-shine"></div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-cat">Restaurant Marketing</div>
+          <div class="pcard-title">Pizza — 50% Off Flyer</div>
+          <p class="pcard-desc">Retro Italian flyer with a stamped offer badge, feature icons, splashing drinks, and a sliced wood-fired pizza on a board.</p>
+        </div>
+      </div>
+      <div class="pcard tilt" style="--i:6">
+        <div class="pcard-img" style="background:linear-gradient(135deg,#1a1020,#2a1a35)">
+          <img src="cheesecake.jpg" alt="Blue Cheesecake Post" loading="lazy" onerror="this.style.display='none'"/>
+          <div class="pcard-overlay"><span class="overlay-tag">Social Post</span></div>
+          <div class="pcard-shine"></div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-cat">Social Media Design</div>
+          <div class="pcard-title">Blue Cheesecake — Social Post</div>
+          <p class="pcard-desc">Organic cream shapes over deep charcoal, a floating glazed slice, and playful copy with tiny cheesecake icons.</p>
+        </div>
+      </div>
+      <div class="pcard tilt" style="--i:7">
+        <div class="pcard-img" style="background:linear-gradient(135deg,#3a1a0a,#5a2f15)">
+          <img src="croissant.jpg" alt="Chocolate Croissant Ad" loading="lazy" onerror="this.style.display='none'"/>
+          <div class="pcard-overlay"><span class="overlay-tag">Bakery Ad</span></div>
+          <div class="pcard-shine"></div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-cat">Bakery Advertising</div>
+          <div class="pcard-title">Chocolate Croissant — Bakery Ad</div>
+          <p class="pcard-desc">Rich cocoa and caramel diagonal split with oversized stacked type and a croissant breaking the headline for depth.</p>
+        </div>
+      </div>
+      <div class="pcard tilt" style="--i:8">
+        <div class="pcard-img" style="background:linear-gradient(135deg,#2a2018,#4a3a2a)">
+          <img src="grandopening.jpg" alt="Grand Opening Announcement" loading="lazy" onerror="this.style.display='none'"/>
+          <div class="pcard-overlay"><span class="overlay-tag">Launch Post</span></div>
+          <div class="pcard-shine"></div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-cat">Social Media Design</div>
+          <div class="pcard-title">Coffee Shop — Grand Opening</div>
+          <p class="pcard-desc">Calendar-style announcement with a circled date, tilted brown note, and scattered iced coffee cutouts for a launch teaser.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="glow-line"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label">Career</div>
+    <h2 class="section-title reveal">Experience &<br/>Education</h2>
+    <p class="section-sub reveal">From client design work and company roles to academic systems, leadership, and competitions.</p>
+    <div class="exp-timeline" style="margin-top:60px">
+      <div class="exp-item reveal">
+        <div class="exp-year">Present</div>
+        <div class="exp-title">Graphic Designer & Data Entry Specialist</div>
+        <div class="exp-org">Anabioil Corp.</div>
+        <ul class="exp-list">
+          <li>Produce marketing and visual materials aligned with company branding</li>
+          <li>Encode, update, and verify company records in PDI, CNG, and CrunchTime</li>
+          <li>Maintain organized inventory and operational data</li>
+        </ul>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-year">2021 – Present</div>
+        <div class="exp-title">Graphic Designer</div>
+        <div class="exp-org">Freelance · Remote & On-site</div>
+        <ul class="exp-list">
+          <li>Create brand identities, logos, social media graphics, advertisements, menus, banners, and posters</li>
+          <li>Deliver digital and print marketing materials for clients</li>
+          <li>Maintain visual consistency while meeting project requirements</li>
+        </ul>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-year">2025</div>
+        <div class="exp-title">Social Media Manager</div>
+        <div class="exp-org">Freelance</div>
+        <ul class="exp-list">
+          <li>Planned content strategies and wrote captions and creative briefs</li>
+          <li>Researched trends and competitors</li>
+          <li>Supported short-form video optimization for TikTok and Instagram Reels</li>
+        </ul>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-year">Internship</div>
+        <div class="exp-title">Graphic Design Intern</div>
+        <div class="exp-org">Department of Trade and Industry (DTI) · Panabo City</div>
+        <ul class="exp-list">
+          <li>Designed roadmap visuals, event tarpaulins, promotional materials, and certificates</li>
+          <li>Supported the office's visual communication and project activities</li>
+        </ul>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-year">2022 – 2024</div>
+        <div class="exp-title">Developer & Project Manager</div>
+        <div class="exp-org">Academic Projects · Davao del Norte State College</div>
+        <ul class="exp-list">
+          <li>KaizenSys (Jan 2024): Project Manager for the capstone, a Taekwondo club management system; led planning, task delegation, team coordination, and progress monitoring</li>
+          <li>Attendance and HR Management System for Penongs (Jul 2024): Developer; organized employee information and attendance records to reduce manual recordkeeping</li>
+          <li>Azeula Cove Website (Dec 2023): Web Developer; built a responsive HTML and CSS website showcasing the establishment, facilities, and services</li>
+          <li>Inventory Management System for Penongs (Dec 2022): Main Developer in Java; tracked stock across three branches</li>
+        </ul>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-year">2022 – 2026</div>
+        <div class="exp-title">B.S. in Information Systems</div>
+        <div class="exp-org">Davao del Norte State College</div>
+        <ul class="exp-list">
+          <li>Relevant coursework: Project Management, Business Processes and Intelligence, Data Analytics, Accounting, Systems Analysis and Design</li>
+          <li>Completed Python Essentials 1 & 2 via Cisco Networking Academy</li>
+        </ul>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-year">2020 – 2022</div>
+        <div class="exp-title">HUMSS · With Honors</div>
+        <div class="exp-org">Francisco Adlaon Learning Institute</div>
+        <ul class="exp-list">
+          <li>Photojournalism and student leadership</li>
+          <li>Applied composition and visual storytelling to school publications</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="glow-line"></div>
+
+<!-- CERTS -->
+<section id="certs">
+  <div class="section-inner">
+    <div class="section-label">Achievements</div>
+    <h2 class="section-title reveal">Awards &<br/>Certifications</h2>
+    <div class="certs-grid">
+      <div class="cert-card reveal">
+        <div class="cert-year">2025</div>
+        <div class="cert-title">Python Essentials 1 & 2</div>
+        <div class="cert-sub">Cisco Networking Academy — Statement of Achievement</div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-year">2024</div>
+        <div class="cert-title">🥉 3rd Place — Website Category</div>
+        <div class="cert-sub">Start Up Sundayag — SeaMart Project</div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-year">2024</div>
+        <div class="cert-title">Certificate of Participation</div>
+        <div class="cert-sub">Start Up Sundayag — SeaMart</div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-year">2022</div>
+        <div class="cert-title">🏆 Best in Comedy Film</div>
+        <div class="cert-sub">Paghiusa sa Lente Multimedia Festival — Oh My Ungo!</div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-year">2022</div>
+        <div class="cert-title">Certificate of Participation</div>
+        <div class="cert-sub">Paghiusa sa Lente Multimedia Festival 2022</div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-year">2020–2022</div>
+        <div class="cert-title">Graduated With Honors</div>
+        <div class="cert-sub">Francisco Adlaon Learning Institute — HUMSS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="glow-line"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-inner">
+      <div class="section-label" style="text-align:center;display:block">Get In Touch</div>
+      <h2 class="section-title reveal" style="text-align:center">Let's Work<br/><span style="background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Together</span></h2>
+      <p class="section-sub reveal">Open to part-time design work, freelance projects, and creative collaborations. Let's create something great together.</p>
+      <div class="contact-cards reveal">
+        <div class="contact-card">
+          <div class="contact-icon">📧</div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-val">Clntvisuals@gmail.com</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">💼</div>
+          <div>
+            <div class="contact-label">LinkedIn</div>
+            <div class="contact-val">linkedin.com/in/clnt-visuals-817740417</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">📱</div>
+          <div>
+            <div class="contact-label">Phone / WhatsApp</div>
+            <div class="contact-val">+63 935 610 8914</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Location</div>
+            <div class="contact-val">Panabo City, Davao del Norte, PH</div>
+          </div>
+        </div>
+      </div>
+      <a href="mailto:Clntvisuals@gmail.com" class="btn-primary" style="display:inline-block">Send Me a Message</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Designed & Built by <span>Clint Lyster E. Banderada</span> · BS Information Systems · DNSC · 2026</p>
+  <p style="margin-top:8px;font-size:12px">Panabo City, Davao del Norte · Clntvisuals@gmail.com</p>
+</footer>
+
+<script>
+// Dark/Light Mode Toggle
+let isLight = false;
+
+function toggleMode() {
+  isLight = !isLight;
+  document.getElementById('body').classList.toggle('light', isLight);
+  document.getElementById('toggle-icon').textContent = isLight ? '🌙' : '☀';
+  document.getElementById('toggle-label').textContent = isLight ? 'Dark Mode' : 'Light Mode';
+  try { localStorage.setItem('portfolioTheme', isLight ? 'light' : 'dark'); } catch (e) {}
+}
+
+// Load saved theme preference
+try {
+  if (localStorage.getItem('portfolioTheme') === 'light') toggleMode();
+} catch (e) {}
+
+// Download CV (keep the PDF in the same folder as index.html)
+function downloadCV() {
+  const link = document.createElement('a');
+  link.href = 'Clint_Lyster_Banderada_Resume.pdf';
+  link.download = 'Clint_Lyster_Banderada_Resume.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  showNotification('CV downloaded! 📄');
+}
+
+// Notification System
+function showNotification(message) {
+  const notification = document.createElement('div');
+  notification.style.cssText = `
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #9b5de5, #c77dff);
+    color: white;
+    padding: 16px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    z-index: 1000;
+    animation: slideIn 0.3s ease;
+    box-shadow: 0 8px 25px rgba(155, 93, 229, 0.4);
+  `;
+  notification.textContent = message;
+  document.body.appendChild(notification);
+  setTimeout(() => {
+    notification.style.animation = 'slideOut 0.3s ease';
+    setTimeout(() => notification.remove(), 300);
+  }, 3000);
+}
+
+// Notification animations
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes slideIn { from { opacity: 0; transform: translateX(100px); } to { opacity: 1; transform: translateX(0); } }
+  @keyframes slideOut { from { opacity: 1; transform: translateX(0); } to { opacity: 0; transform: translateX(100px); } }
+  @keyframes ripple-animation { to { transform: scale(4); opacity: 0; } }
+`;
+document.head.appendChild(style);
+
+// Scroll Animation Observer
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href !== '#' && document.querySelector(href)) {
+      e.preventDefault();
+      document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+// Ripple effect on buttons
+document.querySelectorAll('.btn-primary, .btn-outline').forEach(button => {
+  button.addEventListener('click', function (e) {
+    const ripple = document.createElement('span');
+    const rect = this.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    ripple.style.cssText = `
+      position: absolute;
+      width: ${size}px;
+      height: ${size}px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      left: ${e.clientX - rect.left - size / 2}px;
+      top: ${e.clientY - rect.top - size / 2}px;
+      animation: ripple-animation 0.6s ease-out;
+      pointer-events: none;
+    `;
+    this.style.position = 'relative';
+    this.style.overflow = 'hidden';
+    this.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
+  });
+});
+
+// Aesthetic motion: scroll bar, cursor glow, 3D card tilt, staggered certs
+(function(){
+  const sp=document.getElementById('sp');
+  addEventListener('scroll',()=>{const h=document.documentElement;sp.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+  addEventListener('pointermove',e=>{document.body.style.setProperty('--mx',e.clientX+'px');document.body.style.setProperty('--my',e.clientY+'px')},{passive:true});
+  document.querySelectorAll('.cert-card').forEach((c,i)=>c.style.setProperty('--d',i));
+  if(matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('.pcard.tilt').forEach(card=>{
+      card.addEventListener('pointermove',e=>{
+        const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+        card.style.transform=`perspective(900px) rotateY(${x*8}deg) rotateX(${-y*8}deg) translateY(-8px)`;
+      });
+      card.addEventListener('pointerleave',()=>{card.style.transform=''});
+    });
+  }
+})();
+console.log('%c🎨 Welcome to Clint Lyster\'s Portfolio!', 'color: #9b5de5; font-size: 16px; font-weight: bold;');
+console.log('%cGet in touch: clntvisuals@gmail.com', 'color: #c77dff; font-size: 14px;');
+</script>
+</body>
+</html>
